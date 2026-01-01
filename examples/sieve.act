@@ -1,0 +1,47 @@
+; Sieve of Eratosthenes in Action!
+; Finds all prime numbers up to 100
+
+BYTE ARRAY flags(101)
+
+PROC main()
+  BYTE i, j, count
+
+  ; Initialize all to 1 (prime)
+  FOR i = 0 TO 100
+  DO
+    flags(i) = 1
+  OD
+
+  ; 0 and 1 are not prime
+  flags(0) = 0
+  flags(1) = 0
+
+  ; Sieve
+  FOR i = 2 TO 10  ; sqrt(100)
+  DO
+    IF flags(i) = 1 THEN
+      j = i * 2
+      WHILE j <= 100
+      DO
+        flags(j) = 0
+        j = j + i
+      OD
+    FI
+  OD
+
+  ; Print primes
+  Print("Primes: ")
+  count = 0
+  FOR i = 2 TO 100
+  DO
+    IF flags(i) = 1 THEN
+      PrintB(i)
+      Print(" ")
+      count = count + 1
+    FI
+  OD
+  PrintE()
+  Print("Count: ")
+  PrintB(count)
+  PrintE()
+RETURN

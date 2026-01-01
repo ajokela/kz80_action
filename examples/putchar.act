@@ -1,0 +1,6 @@
+; Output the character 'A' directly
+
+PROC main()
+  PutD(65)
+  PrintE()
+RETURN

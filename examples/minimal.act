@@ -1,0 +1,5 @@
+; Minimal test - just call PrintE
+
+PROC main()
+  PrintE()
+RETURN

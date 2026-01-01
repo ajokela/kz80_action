@@ -1,0 +1,14 @@
+; Simple test program for Action! compiler
+; Counts from 1 to 10
+
+PROC main()
+  BYTE i
+
+  i = 1
+  WHILE i <= 10
+  DO
+    PrintB(i)
+    PrintE()
+    i = i + 1
+  OD
+RETURN

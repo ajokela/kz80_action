@@ -1,0 +1,14 @@
+; Hello World in Action!
+; Simple example that prints a message
+
+PROC main()
+  BYTE i
+
+  i = 65  ; ASCII 'A'
+  WHILE i <= 90  ; Through 'Z'
+  DO
+    PrintB(i)
+    i = i + 1
+  OD
+  PrintE()  ; Print newline
+RETURN

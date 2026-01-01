@@ -1,0 +1,10 @@
+[package]
+name = "kz80_action"
+version = "0.1.0"
+edition = "2021"
+description = "Action! language compiler for Z80"
+authors = ["Alex Jokela"]
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+thiserror = "1.0"

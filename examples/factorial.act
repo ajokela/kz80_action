@@ -1,0 +1,23 @@
+; Factorial calculation in Action!
+; Demonstrates recursive procedure call
+
+CARD result
+
+FUNC CARD Factorial(BYTE n)
+  IF n <= 1 THEN
+    RETURN(1)
+  FI
+  RETURN(n * Factorial(n - 1))
+
+PROC main()
+  BYTE i
+
+  FOR i = 1 TO 10
+  DO
+    result = Factorial(i)
+    PrintB(i)
+    Print("! = ")
+    PrintC(result)
+    PrintE()
+  OD
+RETURN

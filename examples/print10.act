@@ -1,0 +1,6 @@
+; Print the number 10
+
+PROC main()
+  PrintB(10)
+  PrintE()
+RETURN

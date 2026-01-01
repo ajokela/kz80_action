@@ -1,0 +1,21 @@
+; Fibonacci sequence in Action!
+; Computes and prints first 20 Fibonacci numbers
+
+PROC main()
+  CARD a, b, temp, count
+
+  a = 0
+  b = 1
+  count = 0
+
+  WHILE count < 20
+  DO
+    PrintC(a)
+    PrintE()
+
+    temp = a + b
+    a = b
+    b = temp
+    count = count + 1
+  OD
+RETURN

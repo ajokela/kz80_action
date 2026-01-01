@@ -1,0 +1,6 @@
+; Print just the number 5
+
+PROC main()
+  PrintB(5)
+  PrintE()
+RETURN
