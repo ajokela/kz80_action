@@ -5,7 +5,8 @@ use crate::error::{CompileError, Result};
 use crate::runtime::RuntimeSymbols;
 use std::collections::HashMap;
 
-// Z80 opcodes
+// Z80 opcodes (many reserved for future use)
+#[allow(dead_code)]
 mod opcodes {
     pub const NOP: u8 = 0x00;
     pub const LD_BC_NN: u8 = 0x01;
@@ -144,6 +145,7 @@ mod opcodes {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 struct SymbolInfo {
     address: u16,
     data_type: DataType,
@@ -152,12 +154,14 @@ struct SymbolInfo {
 }
 
 #[derive(Debug)]
+#[allow(dead_code)]
 struct ListingEntry {
     address: u16,
     bytes: Vec<u8>,
     source: String,
 }
 
+#[allow(dead_code)]
 pub struct CodeGenerator {
     origin: u16,
     code: Vec<u8>,
@@ -215,6 +219,7 @@ impl CodeGenerator {
         self.pc
     }
 
+    #[allow(dead_code)]
     fn new_label(&mut self) -> usize {
         let label = self.label_counter;
         self.label_counter += 1;
@@ -242,7 +247,7 @@ impl CodeGenerator {
 
     // Load variable into A (byte) or HL (word)
     fn emit_load_var(&mut self, name: &str) -> Result<DataType> {
-        if let Some(info) = self.locals.get(name).cloned() {
+        if let Some(_info) = self.locals.get(name).cloned() {
             // Local variable - loaded from stack
             // TODO: Implement stack-relative addressing
             return Err(CompileError::CodeGenError {
@@ -565,7 +570,7 @@ impl CodeGenerator {
 
                 // Clean up stack (caller cleanup)
                 if !args.is_empty() {
-                    let cleanup = args.len() * 2;
+                    let _cleanup = args.len() * 2;
                     for _ in 0..args.len() {
                         self.emit(opcodes::POP_BC);
                     }
@@ -612,7 +617,7 @@ impl CodeGenerator {
     // Generate code for statement
     fn gen_statement(&mut self, stmt: &Statement) -> Result<()> {
         match stmt {
-            Statement::VarDecl(var) => {
+            Statement::VarDecl(_var) => {
                 // Local variable - allocate on stack
                 // For now, skip - handled during procedure setup
                 Ok(())
@@ -745,7 +750,7 @@ impl CodeGenerator {
                 self.emit_word(0x0000);
 
                 // Exit point
-                let real_exit = self.current_address();
+                let _real_exit = self.current_address();
                 self.emit(opcodes::JP_NN);
                 self.emit_word(0x0000);
                 let exit_patch = self.current_address() - 2;

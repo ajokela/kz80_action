@@ -631,7 +631,6 @@ impl Parser {
 
         // Parse locals and body
         let mut locals = Vec::new();
-        let mut body = Vec::new();
 
         // Parse local variable declarations first
         loop {
@@ -646,7 +645,7 @@ impl Parser {
         }
 
         // Parse body until RETURN
-        body = self.parse_block()?;
+        let mut body = self.parse_block()?;
 
         // Handle RETURN at end
         self.skip_newlines();

@@ -1,6 +1,7 @@
 // Token types for Action! language
 
 #[derive(Debug, Clone, PartialEq)]
+#[allow(dead_code)]
 pub enum Token {
     // Literals
     Number(i32),           // Decimal or hex number
@@ -84,6 +85,7 @@ pub enum Token {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub struct TokenInfo {
     pub token: Token,
     pub line: usize,

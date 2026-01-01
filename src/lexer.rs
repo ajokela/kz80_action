@@ -4,6 +4,7 @@ use crate::token::{Token, TokenInfo};
 use crate::error::{CompileError, Result};
 
 pub struct Lexer<'a> {
+    #[allow(dead_code)]
     source: &'a str,
     chars: std::iter::Peekable<std::str::Chars<'a>>,
     line: usize,
@@ -36,6 +37,7 @@ impl<'a> Lexer<'a> {
         self.current_char = self.chars.next();
     }
 
+    #[allow(dead_code)]
     fn peek(&mut self) -> Option<char> {
         self.chars.peek().copied()
     }

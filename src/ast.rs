@@ -1,6 +1,7 @@
 // Abstract Syntax Tree types for Action! language
 
 #[derive(Debug, Clone, PartialEq)]
+#[allow(dead_code)]
 pub enum DataType {
     Byte,           // 8-bit unsigned (0-255)
     Card,           // 16-bit unsigned (0-65535)
@@ -30,6 +31,7 @@ impl DataType {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub struct Variable {
     pub name: String,
     pub data_type: DataType,
@@ -37,12 +39,14 @@ pub struct Variable {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub struct Parameter {
     pub name: String,
     pub data_type: DataType,
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub enum Expression {
     // Literals
     Number(i32),
@@ -97,6 +101,7 @@ pub enum Expression {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub enum Statement {
     // Variable declaration
     VarDecl(Variable),
@@ -153,6 +158,7 @@ pub enum Statement {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 pub struct Procedure {
     pub name: String,
     pub params: Vec<Parameter>,
